@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchProductId } from "../../redux/productItem.slice/productItem.slice";
-import styles from "./styles.module.scss";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Modal from "../../components/Modal/Modal";
 import { addToCart } from "../../redux/carts.slice/carts.slice";
@@ -221,7 +220,7 @@ const ProductPage = ({modalClose}) => {
         </TabContext>
       </Box>
       <div className="products-carousel"></div>
-      {toggleModal && (
+      {/* {toggleModal && (
         <Modal modalClose={() => setToggleModal(false)} isModal={toggleModal}>
           <HighlightOffIcon sx={{
            position: 'absolute',
@@ -231,12 +230,11 @@ const ProductPage = ({modalClose}) => {
           }}
            onClick={() => setToggleModal(false)}/>
           <header className="modal__header">
-            <h2>Замовлення</h2>
+            <h2>Зам</h2>
           </header>
           <div className="modal__content">
             <p>Ваш товар буде доданий до кошику</p>
           </div>
-          <footer className="modal__footer">
             <MyButton
               onClick={() => {
                 dispatch(addToCart(product));
@@ -250,9 +248,8 @@ const ProductPage = ({modalClose}) => {
             >
               Відмінити
             </MyButton>
-          </footer>
         </Modal>
-      )}
+      )} */}
     </Container>
   );
 };

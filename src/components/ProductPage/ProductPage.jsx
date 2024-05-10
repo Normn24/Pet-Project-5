@@ -18,12 +18,14 @@ import {
 } from "@mui/material";
 import { MdBookmarkAdd, MdBookmarkAdded } from "react-icons/md";
 import { TabContext, TabPanel } from "@mui/lab";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ProductPageSlider from "../../components/Sliders/ProductPageSlider/ProductPageSlider";
 import {
   addToWishList,
   fetchWishList,
   removeFromWishList,
 } from "../../redux/wishList.slice/wishList.slice";
+import { MyButton } from "../../Pages/Cart/CartItem/styles";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -460,29 +462,39 @@ export default function ProductPage() {
       <div className="products-carousel"></div>
       {toggleModal && (
         <Modal modalClose={() => setToggleModal(false)} isModal={toggleModal}>
+          <HighlightOffIcon sx={{
+           position: 'absolute',
+           top: '10px',
+           right: '10px',
+           cursor: 'pointer',
+          }}
+           onClick={() => setToggleModal(false)}/>
           <header className="modal__header">
             <h2>Замовлення</h2>
           </header>
           <div className="modal__content">
-            <p>Ваш товар</p>
+            <p>Ваш товар буде доданий до кошику</p>
           </div>
-          <footer className="modal__footer">
-            <button
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            padding: '0 30px'
+          }}>
+            <MyButton
               onClick={() => {
                 dispatch(addToCart(product));
                 setToggleModal(false);
               }}
-              className="modal__btn-success"
             >
               Додати
-            </button>
-            <button
+            </MyButton>
+            <MyButton
               onClick={() => setToggleModal(false)}
-              className="modal__btn-cancel"
             >
               Відмінити
-            </button>
-          </footer>
+            </MyButton>
+          </Box>
         </Modal>
       )}
     </Box>

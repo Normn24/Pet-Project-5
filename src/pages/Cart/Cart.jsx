@@ -27,7 +27,7 @@ function Cart() {
   );
 
   return (
-    <Box sx={{ position: "relative", minHeight: "75.3vh", margin: "40px 0" }}>
+    <Box sx={{ position: "relative", minHeight: "75.3vh", margin: "40px 0", padding: '0 20px' }}>
       <div className={classes.total}>
         <strong>
           Total: <span>{totalQuantity}</span>

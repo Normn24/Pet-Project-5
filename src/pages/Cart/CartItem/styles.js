@@ -102,7 +102,7 @@ export const useStyles = makeStyles({
   total: {
     position: 'absolute',
     right: '0',
-    marginBottom: ''
+    padding: '0 20px'
   }
 })
 

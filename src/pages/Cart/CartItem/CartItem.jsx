@@ -16,7 +16,7 @@ import { decrementQuantity } from "../../../redux/carts.slice/carts.slice";
 import Payment from "../Paymant";
 import { useState } from "react";
 import Modal from "../../../components/Modal/Modal";
-import { MyButton} from "./styles.js";
+import { MyButton } from "./styles.js";
 import { Box, Alert } from "@mui/material";
 
 export default function CartItem({ product }) {
@@ -32,9 +32,8 @@ export default function CartItem({ product }) {
   };
 
   const closePaymantModal = (isAlert) => {
-    console.log(isAlert)
     setToggleModal(false);
-    if( typeof isAlert === 'boolean') {
+    if (typeof isAlert === "boolean") {
       setAlertModal(true);
     }
   };
@@ -149,7 +148,7 @@ export default function CartItem({ product }) {
               setAlertModal(false);
             }}
           >
-            This Alert uses a Button component for its action.
+            Thanks for your order!
           </Alert>
         </Modal>
       )}
